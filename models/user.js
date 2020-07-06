@@ -24,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     skills:{
       type: DataTypes.STRING,
     },
-    intrest:{
+    interest:{
       type: DataTypes.STRING,
  
     },
