@@ -1,22 +1,27 @@
 {
-    "name": "Project-02-Code-Connect",
-    "version": "1.0.0",
-    "description": "",
-    "main": "server.js",
-    "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node server.js"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/darnocer/Project-02-Code-Connect.git"
-    },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-      "url": "https://github.com/darnocer/Project-02-Code-Connect/issues"
-    },
-    "homepage": "https://github.com/darnocer/Project-02-Code-Connect#readme"
+  "name": "Project-02-Code-Connect",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darnocer/Project-02-Code-Connect.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/darnocer/Project-02-Code-Connect/issues"
+  },
+  "homepage": "https://github.com/darnocer/Project-02-Code-Connect#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.0.0",
+    "passport": "^0.4.1",
+    "passport-github": "^1.1.0"
+  }
 }
-  
