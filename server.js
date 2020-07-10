@@ -20,11 +20,9 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-var routes = require("./routes/api-routes.js");
-var htmlroutes = require("./routes/html-routes.js");
+var routes = require("./routes/api-routes.js")(app);
+var htmlroutes = require("./routes/html-routes.js")(app);
 
-app.use(routes);
-app.use(htmlroutes);
 
 passport.use(new GitHubStrategy({
   clientID: "7b5235c21d2f080de6ee",
@@ -37,6 +35,13 @@ function(accessToken, refreshToken, profile, cb) {
   console.log("profile: ", profile);
 }
 ));
+app.get('/auth/github',
+  passport.authenticate('github'));
+
+app.get('/auth/github/callback',
+  function(res,req){
+    return "Welcome!"
+  })
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {

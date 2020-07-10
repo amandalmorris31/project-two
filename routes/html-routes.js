@@ -1,2 +1,5 @@
-app.get('/auth/github',
-  passport.authenticate('github'));
+  
+module.exports = function(app){
+
+    
+}
