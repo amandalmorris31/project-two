@@ -1,6 +1,7 @@
 var express = require("express");
 var GitHubStrategy = require("passport-github").Strategy;
 var passport = require("passport");
+const db = require("./models");
 var PORT = process.env.PORT || 3000;
 var app = express();
 // Serve static content for the app from the "public" directory in the application directory.
@@ -15,7 +16,7 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 var routes = require("./routes/api-routes.js")(app);
-var htmlroutes = require("./routes/html-routes.js")(app);
+// var htmlroutes = require("./routes/html-routes.js")(app);
 
 passport.use(
   new GitHubStrategy(
@@ -31,8 +32,13 @@ passport.use(
     }
   )
 );
+
 app.get("/auth/github", passport.authenticate("github"));
+
 // Start our server so that it can begin listening to client requests.
-app.listen(PORT, function () {
-  console.log("Server listening on: http://localhost:" + PORT);
+
+db.sequelize.sync().then(() => {
+  app.listen(PORT, () => {
+    console.log(`Server is listening on http://localhost:${PORT}`);
+  });
 });
