@@ -23,7 +23,6 @@ app.set("view engine", "handlebars");
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
-
 passport.use(new GitHubStrategy({
   clientID: "7b5235c21d2f080de6ee",
   clientSecret: "489579aba11175e9122f5f38f6392b2131ef66dd",
