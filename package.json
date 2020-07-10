@@ -19,9 +19,12 @@
   },
   "homepage": "https://github.com/darnocer/Project-02-Code-Connect#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-handlebars": "^5.0.0",
+    "mysql2": "^2.1.0",
     "passport": "^0.4.1",
-    "passport-github": "^1.1.0"
+    "passport-github": "^1.1.0",
+    "sequelize": "^6.3.0"
   }
 }
