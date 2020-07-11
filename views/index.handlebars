@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="columns mt-4">
+        <div class="column">
+            <div class="card">
+                <div class="card-content has-text-centered">
+                    <h1 class="title is-1 text-center">Code Connect</h1>
+                    <form class="new-project">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="project-title" placeholder="Project Title" />
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="project-details" rows="3"
+                                placeholder="Project Details"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="project-link"
+                                placeholder="Project Link (optional)" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="project-technologies"
+                                placeholder="Project Technologies/Languages (optional)" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="github-username"
+                                placeholder="GitHub Username" />
+                        </div>
+                        <button class="btn btn-success mt-3" id="post-project" type="submit">
+                            Connect!
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{!------------------Projects Cards------------------------}}
+    <div class="columns is-multiline">
+        {{#each projects}}
+        {{> projects/project-block}}
+        {{/each}}
+    </div>
+    {{!------------------End of Projects Cards------------------------}}
+
+</div>
