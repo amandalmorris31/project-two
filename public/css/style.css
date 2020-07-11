@@ -1,13 +1,76 @@
-.avatar {
-  border-radius: 50%;
+/* delete test */
+
+.test {
+  border: 1px red solid;
 }
+
+/* project card */
 
 .project-card {
   min-height: 275px;
 }
 
-.interested-btn {
+/* Github info - avatar and username */
+.github-info {
+  padding: 5px;
+  margin: 5px;
   position: absolute;
-  top: 220px;
-  right: 20px;
+  top: 0px;
+  left: 0px;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+/* edit and delete button */
+.edit-controls {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  margin: 0px !important;
+  padding: 5px !important;
+}
+
+/*Project Details - title, link, description */
+.project-details {
+  position: absolute;
+  padding: 10px;
+  margin: 5px;
+  left: 0px;
+  top: 85px;
+  min-height: 150px;
+}
+
+h2 a,
+h2 a:hover {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.project-link {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 0px;
+}
+
+/* card footer - interested button and timestamp */
+.interested-footer {
+  position: absolute;
+  padding: 10px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.timestamp {
+  position: absolute;
+  bottom: 5px;
+  font-style: italic;
+  font-size: 0.7em;
 }

@@ -45,7 +45,9 @@ $(function () {
 
   $(".delete-btn").on("click", function (event) {
     event.preventDefault();
-    var currentPost = $(this).parent().parent().parent().data("id");
+    var currentPost = $(this).parent().parent().parent().parent().data("id");
+    console.log(currentPost);
+
     deletePost(currentPost);
   });
 });
