@@ -63,9 +63,10 @@ h2 a:hover {
 /* card footer - interested button and timestamp */
 .interested-footer {
   position: absolute;
-  padding: 10px;
   bottom: 0px;
   left: 0px;
+  padding: 10px;
+  margin: 5px;
 }
 
 .timestamp {
@@ -73,4 +74,10 @@ h2 a:hover {
   bottom: 5px;
   font-style: italic;
   font-size: 0.7em;
+}
+
+.interested-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
