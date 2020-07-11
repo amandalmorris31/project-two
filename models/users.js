@@ -5,13 +5,6 @@ module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define(
     "User",
     {
-      // The email cannot be null, and must be a proper email before creation
-      // id: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      //   primaryKey: true,
-      // },
-      // The password cannot be null
       ghUsername: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -48,8 +41,6 @@ module.exports = function (sequelize, DataTypes) {
     // When an User is deleted, also delete any associated Project
     User.hasMany(models.Project, {
       onDelete: "cascade",
-      as: "authorId",
-      defaultValue: 1,
     });
   };
   return User;

@@ -2,11 +2,6 @@ module.exports = function (sequelize, DataTypes) {
   var Project = sequelize.define(
     "Project",
     {
-      // id: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      //   primaryKey: true,
-      // },
       projectTitle: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -18,10 +13,6 @@ module.exports = function (sequelize, DataTypes) {
       projectLink: {
         type: DataTypes.STRING,
       },
-      // authorId: {
-      //   type: DataTypes.INTEGER,
-      //   allowNull: false,
-      // },
     },
     {
       timestamps: false,

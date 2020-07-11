@@ -17,7 +17,7 @@ var Handlebars = require("handlebars");
 var exphbs = require("express-handlebars");
 const {
   allowInsecurePrototypeAccess,
-} = require("@handlebars/allow-prototype->access");
+} = require("@handlebars/allow-prototype-access");
 
 app.engine(
   "handlebars",
