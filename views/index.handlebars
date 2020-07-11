@@ -26,7 +26,7 @@
                                 placeholder="GitHub Username" />
                         </div>
                         <button class="btn btn-success mt-3" id="post-project" type="submit">
-                            Submit!
+                            Connect!
                         </button>
                     </form>
 
@@ -34,4 +34,13 @@
             </div>
         </div>
     </div>
+
+    {{!------------------Projects Cards------------------------}}
+    <div class="columns is-multiline">
+        {{#each projects}}
+        {{> projects/project-block}}
+        {{/each}}
+    </div>
+    {{!------------------End of Projects Cards------------------------}}
+
 </div>

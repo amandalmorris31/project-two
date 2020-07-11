@@ -1,5 +1,5 @@
 {
-  "name": "project-02-code-connect",
+  "name": "Project-02-Code-Connect",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/darnocer/Project-02-Code-Connect.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -18,14 +19,16 @@
   },
   "homepage": "https://github.com/darnocer/Project-02-Code-Connect#readme",
   "dependencies": {
-    "bcrypt": "^5.0.0",
+    "@handlebars/allow-prototype-access": "^1.0.3",
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
-    "express-handlebars": "^5.0.0",
+    "express-handlebars": "^3.0.2",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",
-    "path": "^0.12.7",
-    "sequelize": "^6.3.3"
+    "sequelize": "^6.3.0"
+  },
+  "devDependencies": {
+    "handlebars": "^4.7.6"
   }
 }

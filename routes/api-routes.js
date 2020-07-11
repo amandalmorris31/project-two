@@ -1,14 +1,25 @@
-var db = require("../models");
+const db = require("../models");
 
-module.exports = function(app){
-
-    app.get("/api/projects", function(req, res) {
-        // findAll returns all entries for a table when used with no options
-        db.Todo.findAll({}).then(function(dbProjects) {
-          // We have access to the todos as an argument inside of the callback function
-          res.json(dbProjects);
-        });
-
+module.exports = function (app) {
+  app.get("/", (req, res) => {
+    /*var query = {};
+    if(req.query.userID){
+      query.UserId = req.query.userID
+    }*/
+    db.Project.findAll({
+      //where: query,
+      include: [db.User]
+    }).then((data) => {
+      res.render("index", { projects: data });
     });
+  });
+
+  //post route 
+  app.post("/api/projects", function(req,res) {
+
+    db.Project.create(req.body).then(function(dbProject){
+      res.json(dbProject)
+    })
+  })
 
 };
