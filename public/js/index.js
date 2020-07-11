@@ -1,5 +1,13 @@
 $(function () {
-  $("#post-project").on("click", function (event) {
+
+  function submitProject(project) {
+    $.post("/api/projects", project, function() {
+      window.location.href = "/";
+    });
+  }
+
+  function submit(event){
+
     event.preventDefault();
 
     let title = $("#project-title").val().trim();
@@ -8,23 +16,31 @@ $(function () {
     let username = $("#github-username").val().trim();
     let currentTime;
 
-    const queryUrl = "https://api.github.com/users/" + username;
+    let project = {
+      projectTitle: title,
+      projectDetails: details,
+      projectLink: link,
+      ghUsername: username,
+      createdAt: currentTime,
+      //image: image,
+      ghLink: link,
+      UserId:1
+    };
+    console.log(project);
 
-    $.ajax({
-      url: queryUrl,
-      method: "GET",
-    }).then(function (response) {
-      let image = response.avatar_url;
-      let project = {
-        projectTitle: title,
-        projectDetails: details,
-        projectLink: link,
-        ghUsername: username,
-        createdAt: currentTime,
-        image: image,
-        ghLink: link,
-      };
-      console.log(project);
-    });
+    submitProject(project)
+
+  }
+
+
+
+  
+  $("#post-project").on("click", function (event) {
+    event.preventDefault();
+    
+    submit(event);
+
+    
+
   });
 });
