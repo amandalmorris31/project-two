@@ -6,4 +6,10 @@ module.exports = function (app) {
       res.render("index", { projects: data });
     });
   });
+
+  app.get("/auth/github/callback", (req, res) => {
+    db.Project.findAll().then((data) => {
+      res.render("index", { projects: data });
+    });
+  });
 };

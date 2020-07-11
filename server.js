@@ -43,7 +43,7 @@ passport.use(
       clientSecret: "489579aba11175e9122f5f38f6392b2131ef66dd",
       callbackURL: "/auth/github/callback",
     },
-    function (accessToken, refreshToken, profile, cb) {
+      function (accessToken, refreshToken, profile, cb) {
       console.log("accessToken: ", accessToken);
       console.log("refreshToken: ", refreshToken);
       console.log("profile: ", profile);
@@ -51,7 +51,12 @@ passport.use(
   )
 );
 
-app.get("/auth/github", passport.authenticate("github"));
+app.get("/auth/github/callback", passport.authenticate("github", function (accessToken, refreshToken, profile, cb) {
+  console.log("accessToken: ", accessToken);
+  console.log("refreshToken: ", refreshToken);
+  console.log("profile: ", profile);
+}))
+
 
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync().then(() => {
