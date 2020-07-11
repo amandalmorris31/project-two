@@ -1,13 +1,11 @@
 $(function () {
-
   function submitProject(project) {
-    $.post("/api/projects", project, function() {
+    $.post("/api/projects", project, function () {
       window.location.href = "/";
     });
   }
 
-  function submit(event){
-
+  function submit(event) {
     event.preventDefault();
 
     let title = $("#project-title").val().trim();
@@ -24,23 +22,30 @@ $(function () {
       createdAt: currentTime,
       //image: image,
       ghLink: link,
-      UserId:1
+      UserId: 1,
     };
     console.log(project);
 
-    submitProject(project)
-
+    submitProject(project);
   }
 
+  function deletePost(id) {
+    $.ajax({
+      method: "DELETE",
+      url: "/api/projects/" + id,
+    }).then(function () {
+      window.location.href = "/";
+    });
+  }
 
-
-  
   $("#post-project").on("click", function (event) {
     event.preventDefault();
-    
     submit(event);
+  });
 
-    
-
+  $(".delete-btn").on("click", function (event) {
+    event.preventDefault();
+    var currentPost = $(this).parent().parent().parent().data("id");
+    deletePost(currentPost);
   });
 });
