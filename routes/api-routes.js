@@ -8,18 +8,26 @@ module.exports = function (app) {
     }*/
     db.Project.findAll({
       //where: query,
-      include: [db.User]
+      include: [db.User],
     }).then((data) => {
       res.render("index", { projects: data });
     });
   });
 
-  //post route 
-  app.post("/api/projects", function(req,res) {
+  //post route
+  app.post("/api/projects", function (req, res) {
+    db.Project.create(req.body).then(function (dbProject) {
+      res.json(dbProject);
+    });
+  });
 
-    db.Project.create(req.body).then(function(dbProject){
-      res.json(dbProject)
-    })
-  })
-
+  app.delete("/api/projects/:id", function (req, res) {
+    db.Project.destroy({
+      where: {
+        id: req.params.id,
+      },
+    }).then(function (dbProject) {
+      res.json(dbProject);
+    });
+  });
 };
