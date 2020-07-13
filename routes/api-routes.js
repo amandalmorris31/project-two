@@ -9,6 +9,13 @@ module.exports = function (app) {
     });
   });
 
+  app.get("/api/users", (req, res) => {
+    db.User.findAll({}).then((dbUser) => {
+      // res.json(dbUser);
+      res.render("index", { users: dbUser });
+    });
+  });
+
   //post route
   app.post("/api/projects", function (req, res) {
     db.Project.create(req.body).then(function (dbProject) {
@@ -16,6 +23,7 @@ module.exports = function (app) {
     });
   });
 
+  // delete route
   app.delete("/api/projects/:id", function (req, res) {
     db.Project.destroy({
       where: {
