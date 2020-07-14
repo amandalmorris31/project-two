@@ -10,9 +10,9 @@ module.exports = function (app) {
   });
 
   app.get("/api/users", (req, res) => {
-    db.User.findAll({}).then((dbUser) => {
+    db.User.findAll({ include: [db.Project] }).then((dbUser) => {
       // res.json(dbUser);
-      res.render("index", { users: dbUser });
+      res.render("partials/projects/project-block", { users: dbUser });
     });
   });
 

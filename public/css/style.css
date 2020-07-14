@@ -1,3 +1,14 @@
+:root {
+  --color-one: #fdec2d;
+  --color-two: #18e0da;
+  --buttons: #19e07e;
+  --main-bg: #262729;
+}
+
+body {
+  font-family: "Cabin", sans-serif;
+  padding-bottom: 100px;
+}
 /* delete test */
 
 .test {
@@ -80,4 +91,32 @@ h2 a:hover {
   position: absolute;
   right: 20px;
   bottom: 10px;
+}
+
+.form-group {
+  width: 50%;
+}
+
+.btn-success {
+  background-color: var(--buttons) !important;
+  border-color: var(--buttons) !important;
+}
+
+.navbar-brand {
+  font-size: 40px;
+  font-family: "Quantico", sans-serif;
+  background: -webkit-linear-gradient(var(--color-one), var(--color-two));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main {
+  position: absolute;
+  margin: 50px auto;
+  left: 0;
+  right: 0;
+}
+
+.card-footer {
+  text-align: center;
 }
