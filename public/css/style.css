@@ -32,6 +32,8 @@ body {
 
 .avatar {
   border-radius: 50%;
+  max-width: 20%;
+  height: auto;
 }
 
 /* edit and delete button */
