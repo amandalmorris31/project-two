@@ -5,14 +5,9 @@ module.exports = function (app) {
     db.Project.findAll({
       include: [db.User],
     }).then((data) => {
-      res.render("index", { projects: data });
-    });
-  });
+      console.log(data);
 
-  app.get("/api/users", (req, res) => {
-    db.User.findAll({ include: [db.Project] }).then((dbUser) => {
-      // res.json(dbUser);
-      res.render("partials/projects/project-block", { users: dbUser });
+      res.render("index", { projects: data });
     });
   });
 
