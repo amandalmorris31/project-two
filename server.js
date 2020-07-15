@@ -3,13 +3,10 @@ const express = require("express");
 const GitHubStrategy = require("passport-github").Strategy;
 const passport = require("passport");
 const db = require("./models");
-
 // Set PORT
 const PORT = process.env.PORT || 3000;
-
 // Set Express App
 const app = express();
-
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 // Parse application body as JSON
@@ -18,14 +15,13 @@ app.use(express.json());
 //Katie added on 7/13
 app.use(passport.initialize());
 // app.use(passport.session());
-
 passport.serializeUser(function (user, cb) {
   cb(null, user);
 });
 passport.deserializeUser(function (obj, cb) {
   cb(null, obj);
 });
-
+//end Katie addition
 // Set Handlebars configuration
 const Handlebars = require("handlebars");
 const exphbs = require("express-handlebars");
@@ -40,14 +36,12 @@ app.engine(
     handlebars: allowInsecurePrototypeAccess(Handlebars),
   })
 );
-
 app.set("view engine", "handlebars");
-
 // Import routes and give the server access to them.
 const routes = require("./routes/api-routes.js")(app);
-
-// Authentication
+//Katie also added
 let details;
+// Authentication
 passport.use(
   new GitHubStrategy(
     {
@@ -70,12 +64,10 @@ passport.use(
     }
   )
 );
-
 app.get("/auth/github", passport.authenticate("github"), function (
   req,
   res
 ) {});
-
 app.get(
   "/auth/github/callback",
   passport.authenticate("github", { failureRedirect: "/auth/github" }),
@@ -92,7 +84,6 @@ app.get(
     });
   }
 );
-
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
