@@ -14,6 +14,16 @@ module.exports = function (app) {
     });
   });
 
+
+  //Katie added this user route
+  app.get("/api/users", (req, res) => {
+    db.User.findAll({}).then((dbUser) =>{
+      res.json(dbUser)
+    })
+  });
+
+
+
   //post route
   app.post("/api/projects", function (req, res) {
     db.Project.create(req.body).then(function (dbProject) {
@@ -28,6 +38,34 @@ module.exports = function (app) {
       },
     }).then(function (dbProject) {
       res.json(dbProject);
+    });
+  });
+
+  //Amanda adding Interests find all route
+  app.get("/api/interests", (req, res) => {
+    db.Interest.findAll({}).then((dbInterest) =>{
+      res.json(dbInterest)
+    })
+  });
+  //findby userid
+  app.get("/api/interests/:userid", (req, res) => {
+    db.Interest.findOne({
+      where:{
+        userId:req.params.userid
+
+      }
+    }).then((dbInterest) =>{
+      res.json(dbInterest)
+    })
+
+  });
+
+  //findby projectid
+
+   //post route for Interests model
+   app.post("/api/interests", function (req, res) {
+    db.Interest.create(req.body).then(function (dbInterest) {
+      res.json(dbInterest);
     });
   });
 };
