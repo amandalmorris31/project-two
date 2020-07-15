@@ -23,6 +23,7 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "express-handlebars": "^3.0.2",
+    "express-session": "^1.17.1",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-github": "^1.1.0",

@@ -1,21 +1,27 @@
-<div class="column is-4">
+<div class="column is-4" data-id="{{this.id}}">
     <div class="card project-card">
         <div class="card-content">
-            <div class="github-info float-right">
-                <img src="https://via.placeholder.com/75" alt="avatar" class="avatar">
-                <br>
-                {{!-- <a href="#" target="_blank"></a> --}}
+            <div class="edit-controls float-right">
+                <button class="btn edit-btn"><i class="fas fa-edit"></i></button>
+                <button class="btn delete-btn"><i class="fas fa-trash-alt"></i></button>
             </div>
-            <h2 class="title is-3 float-none">{{projectTitle}}</h2>
 
-            <div class="project-details float-none">
+            <div class="github-info float-right w-75">
+                <img src="{{"User.ghImage"}}" alt="avatar" class="avatar">
+
+                <a href="{{"User.ghLink"}}" target="_blank" class="ml-2 username"><span
+                        class="symbol">@</span>{{"User.ghUsername"}}</a>
+
+            </div>
+
+            <div class="project-details float-none w-100">
+                <h2><a href={{projectLink}} target="_blank">{{projectTitle}}</a></h2>
                 <p class="description">{{projectDetails}}</p>
-                <a href="#" target="_blank" class="link">{{projectLink}}</a>
-                {{!-- <p class="technologies">Technologies</p> --}}
-                <br>
-                <br>
+            </div>
+
+            <div class="interested-footer w-100">
                 <button class="btn btn-success float-right interested-btn">I'm Interested!</button>
-                <i class="timestamp"></i>
+                <p class="timestamp">timestamp</p>
             </div>
 
         </div>
