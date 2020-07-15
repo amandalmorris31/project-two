@@ -12,18 +12,14 @@ $(function () {
     let title = $("#project-title").val().trim();
     let details = $("#project-details").val().trim();
     let link = $("#project-link").val().trim();
-    let username = $("#github-username").val().trim();
     let currentTime;
 
     let project = {
       projectTitle: title,
       projectDetails: details,
       projectLink: link,
-      ghUsername: username,
       createdAt: currentTime,
-      //image: image,
-      ghLink: link,
-      UserId: 1,
+      UserId: 2,
     };
     console.log(project);
 
@@ -46,7 +42,9 @@ $(function () {
 
   $(".delete-btn").on("click", function (event) {
     event.preventDefault();
-    var currentPost = $(this).parent().parent().parent().data("id");
+    var currentPost = $(this).parent().parent().parent().parent().data("id");
+    console.log(currentPost);
+
     deletePost(currentPost);
   });
 
