@@ -82,16 +82,19 @@ $(function () {
   $(".edit-btn").on("click", function(event){
       
 
-      //event.stopPropagation();
+     
 
       $(this).parent().parent().children().find(".description").empty();
       $(this).parent().parent().find(".interested-btn").remove();
 
       var input = $("<input>").attr("type", "text").addClass("input");
-      var inputAttach = $(this).parent().parent().children().find(".project-details").add("<input>");
+      var inputLocation = $(this).parent().parent().find(".project-details").append(input);
+      
 
-      var button = $(this).add("<button>").addClass("submit-btn").addClass("float-right").text("Submit Edit").parent().parent().find(".interested-btn");
-      button.css("background-color", "#1ac671", "color", "white", "border-style", "none" )
+      var button = $("<button>").addClass("submit-btn").addClass("float-right").text("Submit Edit");
+      button.css("background-color", "#1ac671","border-style", "none", "color", "white");
+      var buttonLocation = $(this).parent().parent().find(".project-details").append(button);
+      console.log(buttonLocation);
       submitEdit();
 
   

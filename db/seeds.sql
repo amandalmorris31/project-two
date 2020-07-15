@@ -23,3 +23,5 @@ VALUES
     ("In need of a React Developer", "Want to make an app. 1 month committment", "github.com", 1),
     ("Offering Sequelize Tutorial", "Saturday at 2pm", "zoom.com", 1),
     ("Superproject", "Formulate vaccine for COVID-19", "superproject.com", 1);
+
+    
