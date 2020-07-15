@@ -1,13 +1,147 @@
-.avatar {
-  border-radius: 50%;
+:root {
+  --color-one: #fdec2d;
+  --color-two: #18e0da;
+  --buttons: #19e07e;
+  --main-bg: #262729;
 }
 
+/* delete test */
+.test {
+  border: 1px red solid;
+}
+
+body {
+  font-family: "Cabin", sans-serif;
+  padding-bottom: 100px;
+}
+
+main {
+  position: absolute;
+  margin: 50px auto;
+  left: 0;
+  right: 0;
+}
+
+/* navbar */
+.navbar-brand {
+  position: relative;
+  left: 45px;
+  font-size: 40px;
+  font-family: "Quantico", sans-serif;
+  background: -webkit-linear-gradient(var(--color-one), var(--color-two));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* post form */
+.form-group {
+  width: 50%;
+}
+
+/* project cards */
 .project-card {
   min-height: 275px;
 }
 
+/*Project Details - title, link, description */
+.project-details {
+  position: absolute;
+  padding: 10px;
+  margin: 5px;
+  left: 0px;
+  top: 85px;
+  min-height: 150px;
+}
+
+h2 a,
+h2 a:hover {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+}
+
+.project-link {
+  font-size: 0.8em;
+  position: absolute;
+  bottom: 0px;
+}
+
+.btn-success {
+  background-color: var(--buttons) !important;
+  border-color: var(--buttons) !important;
+}
+
+.btn-success:hover {
+  background-color: #1ac671 !important;
+  border-color: #1ac671 !important;
+}
+
+/* Github info - avatar and username */
+.github-info {
+  padding: 5px;
+  margin: 5px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.avatar {
+  border-radius: 50%;
+  max-width: 20%;
+  height: auto;
+}
+
+.username {
+  color: var(--main-bg) !important;
+}
+
+.username:hover {
+  color: var(--buttons) !important;
+  text-decoration: none;
+}
+
+.symbol {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* edit and delete button */
+.edit-controls {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  margin: 0px !important;
+  padding: 5px !important;
+}
+
+/* card footer - interested button and timestamp */
 .interested-btn {
   position: absolute;
-  top: 220px;
   right: 20px;
+  bottom: 10px;
+}
+
+.interested-footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  padding: 10px;
+  margin: 5px;
+}
+
+.timestamp {
+  position: absolute;
+  bottom: 5px;
+  font-style: italic;
+  font-size: 0.7em;
+}
+
+/* main footer */
+
+.card-footer {
+  text-align: center;
 }

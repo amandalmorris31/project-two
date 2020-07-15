@@ -2,12 +2,8 @@ const db = require("../models");
 
 module.exports = function (app) {
   app.get("/", (req, res) => {
-    /*var query = {};
-    if(req.query.userID){
-      query.UserId = req.query.userID
-    }*/
     db.Project.findAll({
-      //where: query,
+      raw: true,
       include: [db.User],
     }).then((data) => {
       res.render("index", { projects: data });
@@ -31,6 +27,7 @@ module.exports = function (app) {
     });
   });
 
+  // delete route
   app.delete("/api/projects/:id", function (req, res) {
     db.Project.destroy({
       where: {
