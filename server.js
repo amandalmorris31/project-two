@@ -15,9 +15,10 @@ app.use(express.static("public"));
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+//Katie added on 7/13
 app.use(passport.initialize());
 // app.use(passport.session());
+
 passport.serializeUser(function (user, cb) {
   cb(null, user);
 });
@@ -39,14 +40,14 @@ app.engine(
     handlebars: allowInsecurePrototypeAccess(Handlebars),
   })
 );
+
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 const routes = require("./routes/api-routes.js")(app);
 
-let details;
-
 // Authentication
+let details;
 passport.use(
   new GitHubStrategy(
     {
@@ -54,6 +55,7 @@ passport.use(
       clientSecret: "489579aba11175e9122f5f38f6392b2131ef66dd",
       callbackURL: "/auth/github/callback",
     },
+    //and the following
     function (accessToken, refreshToken, profile, cb) {
       console.log("taco\n");
       console.log("accessToken: ", accessToken);
@@ -68,6 +70,7 @@ passport.use(
     }
   )
 );
+
 app.get("/auth/github", passport.authenticate("github"), function (
   req,
   res
