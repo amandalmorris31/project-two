@@ -19,7 +19,7 @@ $(function () {
       projectDetails: details,
       projectLink: link,
       createdAt: currentTime,
-      UserId: 2,
+      UserId: 1,
     };
     console.log(project);
 
@@ -78,5 +78,43 @@ $(function () {
   });
   //2.1 create interestsModel
   //done
+
+  $(".edit-btn").on("click", function(event){
+      
+
+      //event.stopPropagation();
+
+      $(this).parent().parent().children().find(".description").empty();
+      $(this).parent().parent().find(".interested-btn").remove();
+
+      var input = $("<input>").attr("type", "text").addClass("input");
+      var inputAttach = $(this).parent().parent().children().find(".project-details").add("<input>");
+
+      var button = $(this).add("<button>").addClass("submit-btn").addClass("float-right").text("Submit Edit").parent().parent().find(".interested-btn");
+      button.css("background-color", "#1ac671", "color", "white", "border-style", "none" )
+      submitEdit();
+
+  
+  });
+
+  function submitEdit() {
+    $(document).on("click", ".submit-btn", function (event) {
+      event.preventDefault();
+      var id = $(this).parent().parent().parent().parent().data("id");
+      var newDescription = $(".input").val().trim();
+      //console.log(newDescription);
+      //console.log(id);
+      var project = {
+        projectDetails: newDescription,
+      };
+      $.ajax({
+        method: "PUT",
+        url: "/api/projects/" + id,
+        data: project,
+      }).then(function () {
+        window.location.href = "/";
+      }); //update(id);
+    });
+  }
 
 });

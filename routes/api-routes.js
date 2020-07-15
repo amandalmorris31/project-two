@@ -65,4 +65,17 @@ module.exports = function (app) {
       res.json(dbInterest);
     });
   });
+
+  app.put("/api/projects/:id", function(req, res) {
+    db.Project.update(
+      req.body, 
+      {
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbProject) {
+      res.json(dbProject);
+    });
+  });
+  
 };
