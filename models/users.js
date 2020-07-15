@@ -41,11 +41,6 @@ module.exports = function (sequelize, DataTypes) {
   //     null
   //   );
   // });
-<<<<<<< HEAD
-=======
-
-
->>>>>>> aef59a90a95b50c9fb80358a46109a966181ed97
   User.associate = function (models) {
     // Associating User with Projects
     // When an User is deleted, also delete any associated Project
