@@ -1,8 +1,15 @@
 $(function () {
-  console.log("landingpage");
-
+  console.log("landingpage")
+  function submitProject(project) {
+    $.post("/api/projects", project, function () {
+      window.location.href = "/" + user;
+    });
+  }
+  let user = localStorage.getItem("codeConnectId")
+  console.log(user)
   function submit(event) {
     event.preventDefault();
+    console.log(user)
 
     let title = $("#project-title").val().trim();
     let details = $("#project-details").val().trim();
@@ -15,8 +22,9 @@ $(function () {
       projectDetails: details,
       projectLink: link,
       createdAt: currentTime,
-      UserId: 2,
+      UserId: user,
     };
+    // redirect to page with id in it in the url
     console.log(project);
 
     submitProject(project);
@@ -24,7 +32,7 @@ $(function () {
 
   function submitProject(project) {
     $.post("/api/projects", project, function () {
-      window.location.href = "/";
+      window.location.href = "/" + user;
     });
   }
 
@@ -33,7 +41,7 @@ $(function () {
       method: "DELETE",
       url: "/api/projects/" + id,
     }).then(function () {
-      window.location.href = "/";
+      window.location.href = "/" + user;
     });
   }
 
@@ -74,7 +82,7 @@ $(function () {
         url: "/api/projects/" + id,
         data: project,
       }).then(function () {
-        window.location.href = "/";
+        window.location.href = "/" + user;
       }); //update(id);
     });
   }
@@ -111,9 +119,11 @@ $(function () {
 
     //3. store into db
     $.post("/api/interests", interestedObj, function () {
-      // window.location.href = "/";
-      //do something to tell user data is added ****IMPLEMENT a MODAL and not ALERT*****,
-      alert("added");
+     // window.location.href = "/";
+     //do something to tell user data is added ****IMPLEMENT a MODAL and not ALERT*****, 
+
+
+    //  alert("added");
     });
   });
   //2.1 create interestsModel
