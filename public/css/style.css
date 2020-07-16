@@ -119,7 +119,8 @@ h2 a:hover {
 }
 
 /* card footer - interested button and timestamp */
-.interested-btn {
+.interested-btn,
+.submit-btn {
   position: absolute;
   right: 20px;
   bottom: 10px;
