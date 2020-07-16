@@ -1,11 +1,7 @@
 {
   "development": {
     "username": "root",
-<<<<<<< HEAD
     "password": "password",
-=======
-    "password": "root",
->>>>>>> cec932fbc4b43fb9525e707117048babfe48158f
     "database": "codeconnect_db",
     "host": "127.0.0.1",
     "port": 3306,
