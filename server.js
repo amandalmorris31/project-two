@@ -3,6 +3,7 @@ const express = require("express");
 const GitHubStrategy = require("passport-github").Strategy;
 const passport = require("passport");
 const db = require("./models");
+let userId;
 // Set PORT
 const PORT = process.env.PORT || 3000;
 // Set Express App
@@ -70,20 +71,23 @@ app.get("/auth/github", passport.authenticate("github"), function (
 ) {});
 app.get(
   "/auth/github/callback",
-  passport.authenticate("github", { failureRedirect: "/auth/github" }),
+  passport.authenticate("github", {failureRedirect: "/auth/github"}),
   function (req, res) {
-    console.log("line 71 ", details, "\n");
+    console.log("userId: ", userId)
     db.User.create({
       ghUsername: details.ghUsername,
       ghImage: details.ghImage,
       ghLink: details.ghLink,
     }).then(function (data) {
-      console.log(data);
-      // res.json(d);
-      res.redirect("/");
-    });
-  }
-);
+      console.log(data.dataValues);
+      userId= data.dataValues.id;
+      console.log("userId: ", userId);
+      res.redirect("/" + userId);
+    }).catch(  err => {
+      res.redirect("/" + userId)
+    })
+  });
+
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {

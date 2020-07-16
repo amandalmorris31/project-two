@@ -82,8 +82,6 @@ $(function () {
   $(".edit-btn").on("click", function(event){
       
 
-     
-
       $(this).parent().parent().children().find(".description").empty();
       $(this).parent().parent().find(".interested-btn").remove();
 
@@ -91,10 +89,11 @@ $(function () {
       var inputLocation = $(this).parent().parent().find(".project-details").append(input);
       
 
-      var button = $("<button>").addClass("submit-btn").addClass("float-right").text("Submit Edit");
-      button.css("background-color", "#1ac671","border-style", "none", "color", "white");
+      var button = $("<button>").addClass("submit-btn").text("Submit Edit");
+      button.addClass("btn-success");
+      //"background-color", "#1ac671"
       var buttonLocation = $(this).parent().parent().find(".project-details").append(button);
-      console.log(buttonLocation);
+      //console.log(buttonLocation);
       submitEdit();
 
   
@@ -116,7 +115,7 @@ $(function () {
         data: project,
       }).then(function () {
         window.location.href = "/";
-      }); //update(id);
+      }); 
     });
   }
 

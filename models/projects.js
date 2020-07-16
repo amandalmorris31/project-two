@@ -13,9 +13,11 @@ module.exports = function (sequelize, DataTypes) {
       projectLink: {
         type: DataTypes.STRING,
       },
+
     },
+
     {
-      timestamps: false,
+      timestamps: true,
     }
   );
   Project.associate = function (models) {
