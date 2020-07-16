@@ -76,7 +76,7 @@ $(function () {
      //do something to tell user data is added ****IMPLEMENT a MODAL and not ALERT*****, 
 
 
-     alert("added");
+    //  alert("added");
     });
   });
   //2.1 create interestsModel
