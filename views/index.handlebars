@@ -17,15 +17,18 @@
             <div class="card">
                 <h3 class="h3 mt-3 m-auto">What connection would you like to make today?</h2>
                     <div class="card-content has-text-centered">
+                        {{!-------begginning of form---------}}
                         <form class="new-project">
+                            {{!-------project title---------}}
                             <div class="form-group mx-auto">
                                 <input type="text" class="form-control" id="project-title" placeholder="Title" />
                             </div>
+                            {{!-------project details---------}}
                             <div class="form-group mx-auto">
                                 <textarea class="form-control" id="project-details" rows="3"
                                     placeholder="Details"></textarea>
                             </div>
-
+                            {{!-------link---------}}
                             <div class="form-group mx-auto">
                                 <input type="text" class="form-control" id="project-link"
                                     placeholder="Link (optional)" />
@@ -35,13 +38,14 @@
                                 Connect!
                             </button>
                         </form>
+                        {{!-------end of form---------}}
 
                     </div>
             </div>
         </div>
     </div>
 
-    {{!------------------Projects Cards------------------------}}
+    {{!------------------beginning of Projects Cards------------------------}}
     <div class="columns is-multiline my-auto">
         {{#each projects}}
         {{> projects/project-block}}
@@ -51,11 +55,14 @@
 
 </main>
 
+{{!-------footer---------}}
 <footer class="text-center fixed-bottom bg-dark">
     <div class="card-footer">
         <small class="text-white mx-auto">&copy; 2020 • All Rights Reserved</small>
     </div>
 </footer>
+
+{{!-------script to store the userid in localstorage---------}}
 <script>
-    localStorage.setItem("codeConnectId", {{userId}})
+    localStorage.setItem("codeConnectId", {{ userId }})
 </script>
