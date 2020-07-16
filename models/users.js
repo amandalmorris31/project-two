@@ -31,11 +31,6 @@ module.exports = function (sequelize, DataTypes) {
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> cec932fbc4b43fb9525e707117048babfe48158f
   User.associate = function (models) {
     // Associating User with Projects
     // When an User is deleted, also delete any associated Project
