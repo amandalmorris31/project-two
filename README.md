@@ -8,6 +8,8 @@
 
 An application for web developers to connect in order to collaborate on projects, develop new coding skills or connect socially based on common interests.
 
+![codeconnect](public/images/codeconnect.png)
+
 ## Table of Contents
 
 - [Installation](#installation)
