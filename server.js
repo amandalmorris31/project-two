@@ -75,20 +75,19 @@ app.get(
       ghUsername: details.ghUsername,
       ghImage: details.ghImage,
       ghLink: details.ghLink,
-      
-    }).then(function (data) {
-      console.log(data.dataValues);
-      userId= data.dataValues.id;
-
-      console.log("userId: ", userId);
-      
-      res.redirect("/" + userId);
-    }).catch(  err => {
-      res.redirect("/" + userId)
     })
-  });
-  typeof window !== 'undefined' && window.localStorage.setItem("codeConnectId", userId)
-  
+      .then(function (data) {
+        console.log(data.dataValues);
+        userId = data.dataValues.id;
+        console.log("userId: ", userId);
+        res.redirect("/" + userId);
+      })
+      .catch((err) => {
+        res.redirect("/" + userId);
+      });
+  }
+);
+
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync({force: true}).then(() => {
   app.listen(PORT, () => {
