@@ -24,4 +24,12 @@ VALUES
     ("Offering Sequelize Tutorial", "Saturday at 2pm", "zoom.com", 1),
     ("Superproject", "Formulate vaccine for COVID-19", "superproject.com", 1);
 
-    
+--interests table--
+USE codeconnect_db;
+INSERT INTO interests
+    (projectId, userId)
+VALUES
+    (3,1),
+    (1,2),
+    (2,3),
+    (4,4);
