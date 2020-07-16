@@ -1,12 +1,12 @@
 const db = require("../models");
 
 module.exports = function (app) {
-  app.get("/", (req, res) => {
+  app.get("/:userid", (req, res) => {
     db.Project.findAll({
       raw: true,
       include: [db.User],
     }).then((data) => {
-      res.render("index", { projects: data });
+      res.render("index", {userId: req.params.userid, projects: data });
     });
   });
 
@@ -22,6 +22,7 @@ module.exports = function (app) {
 
   //post route
   app.post("/api/projects", function (req, res) {
+    console.log(req.body);
     db.Project.create(req.body).then(function (dbProject) {
       res.json(dbProject);
     });

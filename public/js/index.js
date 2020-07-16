@@ -2,12 +2,14 @@ $(function () {
   console.log("landingpage")
   function submitProject(project) {
     $.post("/api/projects", project, function () {
-      window.location.href = "/";
+      window.location.href = "/" + user;
     });
   }
-
+  let user = localStorage.getItem("codeConnectId")
+  console.log(user)
   function submit(event) {
     event.preventDefault();
+    console.log(user)
 
     let title = $("#project-title").val().trim();
     let details = $("#project-details").val().trim();
@@ -19,8 +21,9 @@ $(function () {
       projectDetails: details,
       projectLink: link,
       createdAt: currentTime,
-      UserId: 2,
+      UserId: user,
     };
+    // redirect to page with id in it in the url
     console.log(project);
 
     submitProject(project);
@@ -31,7 +34,7 @@ $(function () {
       method: "DELETE",
       url: "/api/projects/" + id,
     }).then(function () {
-      window.location.href = "/";
+      window.location.href = "/" + user;
     });
   }
 

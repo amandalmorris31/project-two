@@ -41,6 +41,7 @@ app.set("view engine", "handlebars");
 const routes = require("./routes/api-routes.js")(app);
 //Katie also added
 let details;
+let userId;
 // Authentication
 passport.use(
   new GitHubStrategy(
@@ -51,41 +52,45 @@ passport.use(
     },
     //and the following
     function (accessToken, refreshToken, profile, cb) {
-      console.log("taco\n");
-      console.log("accessToken: ", accessToken);
-      // console.log("Profile: ", profile);
+
       details = {
         ghUsername: profile.username,
         ghImage: profile.photos[0].value,
         ghLink: profile.profileUrl,
       };
-      console.log("profile: ", details);
-      cb(null, profile, details);
+
+      cb(null, details);
     }
   )
 );
 app.get("/auth/github", passport.authenticate("github"), function (
   req,
   res
-) {});
+){});
 app.get(
   "/auth/github/callback",
-  passport.authenticate("github", { failureRedirect: "/auth/github" }),
+  passport.authenticate("github", {failureRedirect: "/auth/github"}),
   function (req, res) {
-    console.log("line 71 ", details, "\n");
     db.User.create({
       ghUsername: details.ghUsername,
       ghImage: details.ghImage,
       ghLink: details.ghLink,
+      
     }).then(function (data) {
-      console.log(data);
-      // res.json(d);
-      res.redirect("/");
-    });
-  }
-);
+      console.log(data.dataValues);
+      userId= data.dataValues.id;
+
+      console.log("userId: ", userId);
+      
+      res.redirect("/" + userId);
+    }).catch(  err => {
+      res.redirect("/" + userId)
+    })
+  });
+  typeof window !== 'undefined' && window.localStorage.setItem("codeConnectId", userId)
+  
 // Start our server so that it can begin listening to client requests.
-db.sequelize.sync().then(() => {
+db.sequelize.sync({force: true}).then(() => {
   app.listen(PORT, () => {
     console.log(`Server is listening on http://localhost:${PORT}`);
   });
