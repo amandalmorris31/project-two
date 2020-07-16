@@ -1,3 +1,5 @@
+const { Sequelize } = require("sequelize");
+
 module.exports = function (sequelize, DataTypes) {
   var Project = sequelize.define(
     "Project",
@@ -12,6 +14,14 @@ module.exports = function (sequelize, DataTypes) {
       },
       projectLink: {
         type: DataTypes.STRING,
+      },
+      createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW,
       },
     },
     {

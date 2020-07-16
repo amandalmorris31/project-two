@@ -1,15 +1,15 @@
 $(function () {
-  console.log("landingpage")
+  console.log("landingpage");
   function submitProject(project) {
     $.post("/api/projects", project, function () {
       window.location.href = "/" + user;
     });
   }
-  let user = localStorage.getItem("codeConnectId")
-  console.log(user)
+  let user = localStorage.getItem("codeConnectId");
+  console.log(user);
   function submit(event) {
     event.preventDefault();
-    console.log(user)
+    console.log(user);
 
     let title = $("#project-title").val().trim();
     let details = $("#project-details").val().trim();
@@ -109,7 +109,7 @@ $(function () {
     var interestedObj = {
       projectId: $(this).parent().parent().parent().parent().data("id"),
       //this is hardcoded.  WILL need to grab the userId
-      userId: 1,
+      userId: user,
     };
     console.log(interestedObj);
     //2.2 create a get route to get interests (inside api routes)
@@ -119,11 +119,9 @@ $(function () {
 
     //3. store into db
     $.post("/api/interests", interestedObj, function () {
-     // window.location.href = "/";
-     //do something to tell user data is added ****IMPLEMENT a MODAL and not ALERT*****, 
-
-
-    //  alert("added");
+      // window.location.href = "/";
+      //do something to tell user data is added ****IMPLEMENT a MODAL and not ALERT*****,
+      //  alert("added");
     });
   });
   //2.1 create interestsModel
