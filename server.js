@@ -78,25 +78,37 @@ app.get(
   "/auth/github/callback",
   passport.authenticate("github", { failureRedirect: "/auth/github" }),
   function (req, res) {
+    // console.log(res)
     db.User.create({
       ghUsername: details.ghUsername,
       ghImage: details.ghImage,
       ghLink: details.ghLink,
     })
       .then(function (data) {
-        // grabs userid of user and redirects to a route with the userid
+        console.log("taco\n");
+        console.log(data.dataValues);
         userId = data.dataValues.id;
         console.log("userId: ", userId);
         res.redirect("/" + userId);
       })
       .catch((err) => {
-        res.redirect("/" + userId);
+        console.log("meatball\n");
+        db.User.findOne({
+          where: {
+            ghUsername: details.ghUsername,
+          },
+        }).then((data) => {
+          userId = data.id;
+          // userId = db.User.id;
+          console.log("userId: ", userId);
+          res.redirect("/" + userId);
+        });
       });
   }
 );
 
 // Start our server so that it can begin listening to client requests.
-db.sequelize.sync({ force: true }).then(() => {
+db.sequelize.sync().then(() => {
   app.listen(PORT, () => {
     console.log(`Server is listening on http://localhost:${PORT}`);
   });
