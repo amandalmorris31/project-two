@@ -72,18 +72,23 @@ app.get(
   "/auth/github/callback",
   passport.authenticate("github", { failureRedirect: "/auth/github" }),
   function (req, res) {
-    console.log("line 71 ", details, "\n");
     db.User.create({
       ghUsername: details.ghUsername,
       ghImage: details.ghImage,
       ghLink: details.ghLink,
-    }).then(function (data) {
-      console.log(data);
-      // res.json(d);
-      res.redirect("/");
-    });
+    })
+      .then(function (data) {
+        console.log(data.dataValues);
+        userId = data.dataValues.id;
+        console.log("userId: ", userId);
+        res.redirect("/" + userId);
+      })
+      .catch((err) => {
+        res.redirect("/" + userId);
+      });
   }
 );
+
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync().then(() => {
   app.listen(PORT, () => {

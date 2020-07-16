@@ -29,11 +29,8 @@ module.exports = function (sequelize, DataTypes) {
   };
   // Hooks are automatic methods that run during various phases of the User Model lifecycle
   // In this case, before a User is created, we will automatically hash their password
-<<<<<<< HEAD
-=======
 
   //Katie commented out
->>>>>>> aef59a90a95b50c9fb80358a46109a966181ed97
   // User.addHook("beforeCreate", function (user) {
   //   user.password = bcrypt.hashSync(
   //     user.password,
