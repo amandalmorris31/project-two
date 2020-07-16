@@ -1,21 +1,24 @@
 const db = require("../models");
 
 module.exports = function (app) {
+  //GET - renders the project cards with the project and user information via handlebars
   app.get("/:userid", (req, res) => {
     db.Project.findAll({
       raw: true,
       include: [db.User],
     }).then((data) => {
-      res.render("index", {userId: req.params.userid, projects: data });
+      res.render("index", { userId: req.params.userid, projects: data });
     });
   });
 
+  // GET - returns all authenticated users
   app.get("/api/users", (req, res) => {
     db.User.findAll({}).then((dbUser) => {
       res.json(dbUser);
     });
   });
 
+  // PUT - updates the project information when edits are submitted
   app.put("/api/projects/:id", function (req, res) {
     db.Project.update(req.body, {
       where: {
@@ -26,7 +29,7 @@ module.exports = function (app) {
     });
   });
 
-  //post route
+  // POST - Renders the posted project in a project card
   app.post("/api/projects", function (req, res) {
     console.log(req.body);
     db.Project.create(req.body).then(function (dbProject) {
@@ -34,7 +37,7 @@ module.exports = function (app) {
     });
   });
 
-  // delete route
+  // DELETE - removes a project when the delete button is clicked
   app.delete("/api/projects/:id", function (req, res) {
     db.Project.destroy({
       where: {

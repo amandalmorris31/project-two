@@ -1,24 +1,26 @@
+{{!-------beginning of card---------}}
 <div class="column is-4" data-id="{{this.id}}">
     <div class="card project-card">
         <div class="card-content">
+            {{!-------edit and delete button---------}}
             <div class="edit-controls float-right">
                 <button class="btn edit-btn"><i class="fas fa-edit"></i></button>
                 <button class="btn delete-btn"><i class="fas fa-trash-alt"></i></button>
             </div>
-
+            {{!-------avatar and username---------}}
             <div class="github-info float-right w-75">
                 <img src="{{"User.ghImage"}}" alt="avatar" class="avatar">
-
                 <a href="{{"User.ghLink"}}" target="_blank" class="ml-2 username"><span
                         class="symbol">@</span>{{"User.ghUsername"}}</a>
-
             </div>
 
+            {{!-------project title and details---------}}
             <div class="project-details float-none w-100">
                 <h2><a href="{{projectLink}}" target="_blank">{{projectTitle}}</a></h2>
                 <p class="description">{{projectDetails}}</p>
             </div>
 
+            {{!-------interested button and timestamp---------}}
             <div class="interested-footer w-100">
                 <button class="btn btn-success float-right interested-btn">I'm Interested!</button>
                 <p class="timestamp">{{createdAt}}</p>
