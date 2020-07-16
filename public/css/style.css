@@ -10,9 +10,20 @@
   border: 1px red solid;
 }
 
+html,
 body {
   font-family: "Cabin", sans-serif;
-  padding-bottom: 100px;
+  padding-bottom: 300px;
+  margin-bottom: 500px;
+  background-image: url("https://geneticliteracyproject.org/wp-content/uploads/2017/11/iStock_25371965_LARGE-1024x768.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+container {
+  margin-bottom: 300px !important;
 }
 
 main {
@@ -26,11 +37,16 @@ main {
 .navbar-brand {
   position: relative;
   left: 45px;
-  font-size: 40px;
+  font-size: 50px;
   font-family: "Quantico", sans-serif;
+  background-clip: padding-box;
   background: -webkit-linear-gradient(var(--color-one), var(--color-two));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.nav-link {
+  font-size: 18px;
 }
 
 /* post form */
@@ -58,7 +74,7 @@ h2 a:hover {
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
-  color: black;
+  color: var(--main-bg);
 }
 
 .project-link {
