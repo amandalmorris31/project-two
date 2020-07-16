@@ -32,7 +32,7 @@ $(function () {
 
   function submitProject(project) {
     $.post("/api/projects", project, function () {
-      window.location.href = "/";
+      window.location.href = "/" + user;
     });
   }
 
@@ -82,7 +82,7 @@ $(function () {
         url: "/api/projects/" + id,
         data: project,
       }).then(function () {
-        window.location.href = "/";
+        window.location.href = "/" + user;
       }); //update(id);
     });
   }
