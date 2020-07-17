@@ -78,21 +78,17 @@ app.get(
   "/auth/github/callback",
   passport.authenticate("github", { failureRedirect: "/auth/github" }),
   function (req, res) {
-    // console.log(res)
     db.User.create({
       ghUsername: details.ghUsername,
       ghImage: details.ghImage,
       ghLink: details.ghLink,
     })
       .then(function (data) {
-        console.log("taco\n");
-        console.log(data.dataValues);
         userId = data.dataValues.id;
         console.log("userId: ", userId);
         res.redirect("/" + userId);
       })
       .catch((err) => {
-        console.log("meatball\n");
         db.User.findOne({
           where: {
             ghUsername: details.ghUsername,

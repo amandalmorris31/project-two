@@ -29,7 +29,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
   Project.associate = function (models) {
-    // We’re saying that a Project should belong to an User
+    // We’re saying that a Project should belong to a User
     // A Project can’t be created without an User due to the foreign key constraint
     Project.belongsTo(models.User, {
       foreignKey: {

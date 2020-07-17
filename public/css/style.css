@@ -1,3 +1,4 @@
+/* color variables */
 :root {
   --color-one: #fdec2d;
   --color-two: #18e0da;
@@ -5,34 +6,28 @@
   --main-bg: #262729;
 }
 
-/* delete test */
+/* used to test containers */
 .test {
-  border: 1px red solid;
+  border: 2px red solid;
 }
 
+/* main background and container spacing */
 html,
 body {
   font-family: "Cabin", sans-serif;
-  margin-bottom: 50vh;
-  background-image: url("https://geneticliteracyproject.org/wp-content/uploads/2017/11/iStock_25371965_LARGE-1024x768.jpg");
+  background-image: url("../images/bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   height: 100%;
 }
 
-container {
-  margin-bottom: 300px !important;
+/* adds spacing between last card and footer */
+.container {
+  margin-bottom: 15vh !important;
 }
 
-main {
-  position: absolute;
-  margin: 50px auto;
-  left: 0;
-  right: 0;
-}
-
-/* navbar */
+/* navbar styling - webkit allows gradient*/
 .navbar-brand {
   position: relative;
   left: 45px;
@@ -45,9 +40,10 @@ main {
 }
 
 .navbar-dark {
-  background-color: #262729 !important;
+  background-color: var(--main-bg) !important;
 }
 
+/* for "My Profile" link */
 .nav-link {
   font-size: 18px;
 }
@@ -55,6 +51,39 @@ main {
 /* post form */
 .form-group {
   width: 50%;
+}
+
+/* BUTTONS */
+.btn-success {
+  background-color: var(--buttons) !important;
+  border-color: var(--buttons) !important;
+}
+
+/* slightly darker styling on hover */
+.btn-success:hover {
+  background-color: #1ac671 !important;
+  border-color: #1ac671 !important;
+}
+
+/* positioning for edit and delete button */
+.edit-controls {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  margin: 0px !important;
+  padding: 5px !important;
+}
+
+/* interested button is replaced by submit button when editing project */
+.interested-btn,
+.submit-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
 
 /* project cards */
@@ -80,20 +109,11 @@ h2 a:hover {
   color: var(--main-bg);
 }
 
+/* link is stored in title */
 .project-link {
   font-size: 0.8em;
   position: absolute;
   bottom: 0px;
-}
-
-.btn-success {
-  background-color: var(--buttons) !important;
-  border-color: var(--buttons) !important;
-}
-
-.btn-success:hover {
-  background-color: #1ac671 !important;
-  border-color: #1ac671 !important;
 }
 
 /* Github info - avatar and username */
@@ -120,31 +140,12 @@ h2 a:hover {
   text-decoration: none;
 }
 
+/* changing font for @ symbol */
 .symbol {
   font-family: "Open Sans", sans-serif;
 }
 
-/* edit and delete button */
-.edit-controls {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
-.edit-btn,
-.delete-btn {
-  margin: 0px !important;
-  padding: 5px !important;
-}
-
-/* card footer - interested button and timestamp */
-.interested-btn,
-.submit-btn {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-}
-
+/* interested footer includes interested button and timestamp */
 .interested-footer {
   position: absolute;
   bottom: 0px;
@@ -161,7 +162,7 @@ h2 a:hover {
 }
 
 /* main footer */
-
 .card-footer {
   text-align: center;
+  background-color: var(--main-bg);
 }
