@@ -1,3 +1,5 @@
+const { Sequelize } = require("sequelize");
+
 module.exports = function (sequelize, DataTypes) {
   var Project = sequelize.define(
     "Project",
@@ -13,13 +15,21 @@ module.exports = function (sequelize, DataTypes) {
       projectLink: {
         type: DataTypes.STRING,
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW,
+      },
+      updatedAt: {
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW,
+      },
     },
     {
       timestamps: true,
     }
   );
   Project.associate = function (models) {
-    // We’re saying that a Project should belong to an User
+    // We’re saying that a Project should belong to a User
     // A Project can’t be created without an User due to the foreign key constraint
     Project.belongsTo(models.User, {
       foreignKey: {

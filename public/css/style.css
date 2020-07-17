@@ -1,3 +1,4 @@
+/* color variables */
 :root {
   --color-one: #fdec2d;
   --color-two: #18e0da;
@@ -5,37 +6,84 @@
   --main-bg: #262729;
 }
 
-/* delete test */
+/* used to test containers */
 .test {
-  border: 1px red solid;
+  border: 2px red solid;
 }
 
+/* main background and container spacing */
+html,
 body {
   font-family: "Cabin", sans-serif;
-  padding-bottom: 100px;
+  background-image: url("../images/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
 }
 
-main {
-  position: absolute;
-  margin: 50px auto;
-  left: 0;
-  right: 0;
+/* adds spacing between last card and footer */
+.container {
+  margin-bottom: 15vh !important;
 }
 
-/* navbar */
+/* navbar styling - webkit allows gradient*/
 .navbar-brand {
   position: relative;
   left: 45px;
-  font-size: 40px;
+  font-size: 50px;
   font-family: "Quantico", sans-serif;
+  background-clip: padding-box;
   background: -webkit-linear-gradient(var(--color-one), var(--color-two));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.navbar-dark {
+  background-color: var(--main-bg) !important;
+}
+
+/* for "My Profile" link */
+.nav-link {
+  font-size: 18px;
+}
+
 /* post form */
 .form-group {
   width: 50%;
+}
+
+/* BUTTONS */
+.btn-success {
+  background-color: var(--buttons) !important;
+  border-color: var(--buttons) !important;
+}
+
+/* slightly darker styling on hover */
+.btn-success:hover {
+  background-color: #1ac671 !important;
+  border-color: #1ac671 !important;
+}
+
+/* positioning for edit and delete button */
+.edit-controls {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  margin: 0px !important;
+  padding: 5px !important;
+}
+
+/* interested button is replaced by submit button when editing project */
+.interested-btn,
+.submit-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
 }
 
 /* project cards */
@@ -58,23 +106,14 @@ h2 a:hover {
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: none;
-  color: black;
+  color: var(--main-bg);
 }
 
+/* link is stored in title */
 .project-link {
   font-size: 0.8em;
   position: absolute;
   bottom: 0px;
-}
-
-.btn-success {
-  background-color: var(--buttons) !important;
-  border-color: var(--buttons) !important;
-}
-
-.btn-success:hover {
-  background-color: #1ac671 !important;
-  border-color: #1ac671 !important;
 }
 
 /* Github info - avatar and username */
@@ -101,31 +140,12 @@ h2 a:hover {
   text-decoration: none;
 }
 
+/* changing font for @ symbol */
 .symbol {
   font-family: "Open Sans", sans-serif;
 }
 
-/* edit and delete button */
-.edit-controls {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
-.edit-btn,
-.delete-btn {
-  margin: 0px !important;
-  padding: 5px !important;
-}
-
-/* card footer - interested button and timestamp */
-.interested-btn,
-.submit-btn {
-  position: absolute;
-  right: 20px;
-  bottom: 10px;
-}
-
+/* interested footer includes interested button and timestamp */
 .interested-footer {
   position: absolute;
   bottom: 0px;
@@ -142,7 +162,7 @@ h2 a:hover {
 }
 
 /* main footer */
-
 .card-footer {
   text-align: center;
+  background-color: var(--main-bg);
 }
