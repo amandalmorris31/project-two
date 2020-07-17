@@ -6,7 +6,7 @@
 
 ## Description
 
-An application for web developers to connect in order to collaborate on projects, develop new coding skills or connect socially based on common interests.
+A social platform for web developers to connect in order to collaborate on projects, develop new coding skills, or connect socially based on common interests.
 
 ![codeconnect](public/images/codeconnect.png)
 
@@ -20,13 +20,43 @@ An application for web developers to connect in order to collaborate on projects
 
 ## Installation
 
+#### Cloning repo
+
 ```
 fork repo
 clone to local machine
-npm i
-setup OAuth app
+```
+
+#### Initial Setup
+
+```
+npm i to install packages
+update config.json with mySQL user/password
+```
+
+#### OAuth
+
+```
+setup OAuth app on Github and connect to repo
+set HomepageURL to http://localhost:3000
+set Authorization callback URL to http://localhost:3000/auth/github/callback
+update client id and client secret from OAuth app in server.js
+```
+
+#### Database
+
+```
+run drop/create commands from seeds.sql in mySQL workbench to create db
+start server with node server.js to create tables via Sequelize
+seed db starting with users table first, then projects table
+```
+
+#### Running app
+
+```
 node server.js
-navigate to localhost:3000
+navigate to http://localhost:3000/auth/github
+enter github credentials to be redirected to app
 ```
 
 ## Usage
@@ -35,7 +65,8 @@ navigate to localhost:3000
 - Fill out the form for click "Connect" to make a post visible by others
 - Click the pencil icon to edit the details of your post
 - Click the trashcan icon to delete your post
-- Click "I'm Interested" to track projects you're interested in
+- Click "I'm Interested" to track projects you're interested in (currently only populates interested table in db for future dev)
+
   ![demo](public/images/demo.gif)
 
 ## Future Enhancements
@@ -63,6 +94,7 @@ navigate to localhost:3000
 - [Handlebars](https://handlebarsjs.com/)
 
 - [Sequelize](https://sequelize.org/)
+- [Express](https://www.npmjs.com/package/express)
 
 _no learning assistants were harmed in the making of this app_
 
