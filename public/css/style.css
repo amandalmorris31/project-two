@@ -13,8 +13,7 @@
 html,
 body {
   font-family: "Cabin", sans-serif;
-  padding-bottom: 300px;
-  margin-bottom: 500px;
+  margin-bottom: 50vh;
   background-image: url("https://geneticliteracyproject.org/wp-content/uploads/2017/11/iStock_25371965_LARGE-1024x768.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,6 +42,10 @@ main {
   background: -webkit-linear-gradient(var(--color-one), var(--color-two));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.navbar-dark {
+  background-color: #262729 !important;
 }
 
 .nav-link {
