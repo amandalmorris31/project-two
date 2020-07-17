@@ -16,7 +16,7 @@ A social platform for web developers to connect in order to collaborate on proje
 - [Usage](#usage)
 - [Future Enhancements](#future-enhancements)
 - [Credits](#Credits)
-- [Questions](#questions)
+- [Contributors](#contributors)
 
 ## Installation
 
