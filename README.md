@@ -2,7 +2,7 @@
 
 ![last commit](https://img.shields.io/github/last-commit/darnocer/Project-02-Code-Connect?style=flat-square)
 
-### URL: Heroku Deployment Coming Soon
+### URL: http://project-02-code-connect.herokuapp.com/
 
 ## Description
 
