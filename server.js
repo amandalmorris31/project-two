@@ -69,10 +69,7 @@ passport.use(
 );
 
 // homepage URL
-app.get("/auth/github", passport.authenticate("github"), function (
-  req,
-  res
-) {});
+app.get("/", passport.authenticate("github"), function (req, res) {});
 // Callback URL
 app.get(
   "/auth/github/callback",
