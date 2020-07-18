@@ -17,8 +17,6 @@
   },
   "production": {
     "dialect": "mysql",
-    "use_env_variable": "JAWSDB_URL",
-    "clientID": "process.env.clientID",
-    "clientSecret": "process.env.clientSecret"
+    "use_env_variable": "JAWSDB_URL"
   }
 }
